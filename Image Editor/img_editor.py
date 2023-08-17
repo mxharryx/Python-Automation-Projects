@@ -21,6 +21,10 @@ for image_file in image_files:
     red_filtered_image = enhancer.enhance(2.0)
     red_filtered_image.save(destination_path)
 
+    rotate_angle=90
+    rotated_image = image.rotate(rotate_angle, expand=True) 
+    rotated_image.save(destination_path)
+
     print(f"Processed '{image_file}'")
 
     print("Image editing and saving complete.")
