@@ -1,8 +1,8 @@
-from PIL import Image, ImageFilter
+from PIL import Image, ImageEnhance
 import os
 
 #Specify source and dest directory
-source_directory - './image'
+source_directory = './image'
 destination_directory = './edited-img'
 
 #Ensure the destination directory exists
@@ -17,7 +17,8 @@ for image_file in image_files:
     destination_path = os.path.join(destination_directory, image_file)
 
     image = Image.open(source_path)
-    red_filtered_image = image.filter(ImageFilter.Colorize(128, 0, 0, 0))
+    enhancer = ImageEnhance.Color(image)
+    red_filtered_image = enhancer.enhance(2.0)
     red_filtered_image.save(destination_path)
 
     print(f"Processed '{image_file}'")
